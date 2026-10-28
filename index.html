@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Charlie Bees creates practical apps for everyday life. Discover myCobba, your business mate.">
+  <title>Charlie Bees | Clever little apps</title>
+
+  <style>
+    :root {
+      --navy: #142b3b;
+      --gold: #f6bf4f;
+      --cream: #fffaf0;
+      --ink: #263747;
+      --muted: #607080;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.4rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--gold); }
+
+    nav .links {
+      display: flex;
+      gap: 24px;
+      font-size: .9rem;
+    }
+
+    nav .links a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 100px 0 115px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.12;
+      margin: 0 0 24px;
+      letter-spacing: -.04em;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 540px;
+      font-size: 1.2rem;
+      color: #d8e1e7;
+    }
+
+    main {
+      background: var(--cream);
+      padding: 85px 0;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .app-card {
+      background: white;
+      border: 1px solid #e6e9ec;
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.04);
+    }
+
+    .app-card h2 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .tagline {
+      font-weight: 650;
+      margin: 4px 0 20px;
+    }
+
+    .app-card p {
+      max-width: 600px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 30px;
+      background: #fff1c9;
+      color: #74500b;
+      font-size: .8rem;
+      font-weight: 650;
+    }
+
+    footer {
+      padding: 36px 0;
+      background: white;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      nav { flex-direction: column; }
+      .hero { padding: 65px 0 80px; }
+      .app-card { padding: 25px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="/">🐝 charlie<span>bees</span></a>
+        <div class="links">
+          <a href="#apps">Our Apps</a>
+          <a href="mycobba/support.html">Support</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <h1>
+          Clever little apps.<br>
+          <span>Made for real life.</span>
+        </h1>
+        <p>
+          Practical, thoughtfully designed software
+          to make everyday work a little easier.
+          Proudly Australian.
+        </p>
+      </section>
+    </div>
+  </header>
+
+  <main id="apps">
+    <div class="container">
+      <div class="eyebrow">Our first app</div>
+
+      <article class="app-card">
+        <span class="pill">Coming soon to iPhone</span>
+        <h2>myCobba</h2>
+        <div class="tagline">My business mate.</div>
+
+        <p>
+          Running your own business is hard enough.
+          Keeping track of it shouldn't be.
+        </p>
+
+        <p>
+          Manage customers, schedule jobs, track
+          materials and create invoices — all from
+          one handy iPhone app.
+        </p>
+
+        <p>
+          Built with independent tradespeople and
+          service businesses in mind.
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        &copy; <span id="year"></span> Charlie Bees.
+        Made in Australia.
+      </div>
+
+      <div class="footer-links">
+        <a href="mycobba/privacy.html">Privacy</a>
+        <a href="mycobba/support.html">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
