@@ -50,15 +50,16 @@
       <h2 id="contact-title">Send us a message</h2>
       <p>Tell us a little about your question and we'll get back to you.</p>
       <!-- CONFIGURATION REQUIRED: replace the placeholder endpoint below with your hosted form provider's endpoint. -->
-      <form id="support-form" action="" method="POST">
+      <form id="support-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="1940c012-0c8b-4925-8ec8-893ad5714109">
         <label for="email">Your email address</label>
         <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
         <label for="subject">Subject</label>
         <input id="subject" name="subject" type="text" placeholder="What can we help with?" required maxlength="150">
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Tell us what's happening…" required maxlength="5000"></textarea>
-        <button id="send" type="submit" disabled>Send message</button>
-        <p id="form-status" class="status" role="status">Message sending is not yet configured.</p>
+        <button id="send" type="submit">Send message</button>
+        <p id="form-status" class="status" role="status"></p>
       </form>
       <p class="note">Please don't include passwords, customers' personal information, banking details or backup files in your message.</p>
     </section>
@@ -74,18 +75,45 @@
     </section>
   </main>
   <footer>© Charlie Bees · <a href="/mycobba/privacy.html">Privacy Policy</a> · <a href="/">Home</a></footer>
-  <script>
-    // Add the endpoint supplied by your chosen hosted form service here.
-    // Do not place a private API key or email-sending credential in public HTML.
-    const FORM_ENDPOINT = "";
-    const form = document.getElementById("support-form");
-    const send = document.getElementById("send");
-    const status = document.getElementById("form-status");
-    if (FORM_ENDPOINT) {
-      form.action = FORM_ENDPOINT;
+  
+<script>
+  const form = document.getElementById("support-form");
+  const send = document.getElementById("send");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    send.disabled = true;
+    status.textContent = "Sending your message...";
+
+    try {
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: new FormData(form)
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        status.textContent =
+          "Thanks! Your message has been sent successfully.";
+        form.reset();
+      } else {
+        status.textContent =
+          "Sorry, your message could not be sent. Please try again.";
+      }
+    } catch (error) {
+      status.textContent =
+        "Unable to send your message. Please check your connection.";
+    } finally {
       send.disabled = false;
-      status.textContent = "";
     }
-  </script>
+  });
+</script>
+
 </body>
 </html>
