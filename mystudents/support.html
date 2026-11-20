@@ -63,11 +63,13 @@
   
       <form id="support-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="1940c012-0c8b-4925-8ec8-893ad5714109">
+        <input type="hidden" name="app_name" value="myStudents">
+        <input type="hidden" name="from_name" value="myStudents Support">
         <label for="email">Your email address</label>
         <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
         <label for="subject">Subject</label>
         <input id="subject" name="subject" type="text" placeholder="What can we help with?" required maxlength="150">
-        <label for="message">Message re myStudents</label>
+        <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Tell us what's happening…" required maxlength="5000"></textarea>
         <button id="send" type="submit">Send message</button>
         <p id="form-status" class="status" role="status"></p>
